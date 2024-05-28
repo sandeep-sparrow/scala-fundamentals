@@ -1,3 +1,3 @@
-class Employee(firstName: String, lastName: String, department: Department)
+class Employee(val firstName: String, val lastName: String, var department: Department)
 
-class Department(name: String, number: Int)
+class Department(val name: String, val number: Int)
