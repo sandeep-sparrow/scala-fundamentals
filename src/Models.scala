@@ -28,6 +28,26 @@ class Employee(@BeanProperty val firstName: String,
              title: String = this.title) = {
         new Employee(firstName, lastName, title)
     }
+
+    override def equals(x: Any): Boolean = {
+        if(!x.isInstanceOf[Employee]) false
+        else {
+            val other = x.asInstanceOf[Employee]
+            other.firstName == this.firstName &&
+            other.lastName == this.lastName &&
+            other.title == this.title
+        }
+    }
+
+    override def hashCode: Int = {
+        var result = 19
+        result = 31 * result + firstName.hashCode
+        result = 31 * result + lastName.hashCode
+        result = 31 * result + title.hashCode
+        result
+    }
+
+    override def toString = s"Employee($firstName, $lastName, $title)"
 }
 
 class Department(val name: String)
@@ -37,4 +57,11 @@ class Manager(firstName: String,
               title: String,
               val department: Department) extends Employee(firstName, lastName, title){
 
+    override def fullName() = s"$firstName $lastName, ${department.name} Manager"
+
+    override def copy(firstName: String = this.firstName, 
+                      lastName: String = this.lastName,
+                      title: String = this.title) = {
+        new Manager(firstName, lastName, title, new Department("Toys"))
+    }
 }
