@@ -50,7 +50,7 @@ class Employee(@BeanProperty val firstName: String,
     override def toString = s"Employee($firstName, $lastName, $title)"
 }
 
-class Department(val name: String)
+case class Department(name: String)
 
 class Manager(firstName: String,
               lastName: String,

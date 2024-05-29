@@ -45,3 +45,10 @@ println(ada.hashCode != anotherAda.hashCode) // true
 println(ada.toString)
 println(newAda.toString)
 println(anotherAda.toString)
+
+val departmentToy1 = Department("Toys");
+val departmentToy2 = Department("Toys");
+println(departmentToy1.toString)
+println(departmentToy1 == departmentToy2)
+println(departmentToy1 eq departmentToy2)
+println(departmentToy1.hashCode == departmentToy2.hashCode)
