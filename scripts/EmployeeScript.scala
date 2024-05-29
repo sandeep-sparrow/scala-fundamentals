@@ -49,6 +49,15 @@ println(anotherAda.toString)
 val departmentToy1 = Department("Toys");
 val departmentToy2 = Department("Toys");
 println(departmentToy1.toString)
+println(departmentToy2.toString)
 println(departmentToy1 == departmentToy2)
 println(departmentToy1 eq departmentToy2)
 println(departmentToy1.hashCode == departmentToy2.hashCode)
+
+// Pattern Matching
+val name = departmentToy1 match {
+  case Department(n) => n
+  case _ => "unknown"
+}
+
+println(name)
